@@ -1,0 +1,34 @@
+class Solution {
+    public int thirdMax(int[] nums) {
+        int count = 0;
+        int max = 0;
+        int lastnumber = 0;
+        int count3Case = 0;
+        
+        for (int i= 0; i < nums.length; i++){
+    
+            if (nums[i] != lastnumber){
+                count++;
+                lastnumber = nums[i];
+                if(nums[i] > max && count < 3 ){
+                    max = nums[i];
+                }
+            if (count == 3){
+                //return lastnumber;
+                //return nums[2];
+                count3Case = nums[i];
+            }
+        }
+         
+    }
+    if (count > 3){
+        return nums[2];
+        
+    } 
+    else if (count == 3){
+        return count3Case;
+    }
+    return max;
+
+}
+}
