@@ -1,3 +1,6 @@
+//use Approach 2: One Pass
+//currently using Brute Force
+
 class Solution {
     public int maxProfit(int[] prices) {
    
