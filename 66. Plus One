@@ -1,0 +1,31 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int length = digits.length -1;
+        
+        for ( int i = length; i < 0; i--){
+            if (digits[i] < 9){
+                digits[i] = digits[i] +1;
+                return digits;
+            }
+            else{
+                digits[i] = 0;
+            }
+        
+        }
+        // if the frist element is zero, we need one more digit
+        
+        if (digits[0] == 9){
+            int[] newArray = new int[digits.length+1];
+            newArray[0] = 1;
+            return newArray;
+            
+        }
+    return digits;
+    }
+}
+        
+        
+        
+        
+        
+        
