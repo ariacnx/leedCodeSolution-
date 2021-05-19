@@ -16,3 +16,29 @@ class Solution {
     return newarray;
     }
 }
+
+
+// wrong solution 
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int j = 0;
+        int [] temp = new int [m];
+        int answerindex =0;
+        int i = 0;
+         while(i < nums1.length){
+            if (nums2[i] < nums1[j]){
+            temp[j] = nums1[j];
+            nums1[i] = nums2[i]; 
+            i++;
+            answerindex++;
+            }
+            else if (temp[j] != 0){
+                nums1[i] = temp[j];
+                i++;
+            }
+            else{
+            i++; 
+            }
+         }     
+    }
+}
