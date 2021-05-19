@@ -21,7 +21,3 @@ class Solution {
     }  
 }
 
-//for (int j = 0; j < length ; j++){
-                //if (nums[j] == requiredNum);
-                //solution[1] = j; 
-    
