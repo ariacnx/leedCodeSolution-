@@ -1,0 +1,18 @@
+//try not to use new array 
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int [] newarray = new int [m+n];
+        int i = 0;
+        int j = 0; 
+        while(i < nums1.length){
+            if (nums1[i] < nums2[j]){
+            newarray [i] = nums2[j];
+                j++;
+            }else{
+            newarray [i] = nums1[i];
+                i++;
+            }
+        }
+    return newarray;
+    }
+}
