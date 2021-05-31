@@ -1,0 +1,49 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        char[] strS = s.toCharArray();
+        char[] strT = t.toCharArray();
+        int countS = 0;
+        int countT =0;
+      
+        if (strS.length != strT.length){
+            return false;
+        }
+        
+        HashMap<Character, Integer> map1 = new HashMap<Character, Integer>();
+        for (char character : strS){
+            if (map1.get(character) == null){
+                map1.put(character, 1);
+            }
+            else{
+                int count = map1.get(character);
+                map1.put(character, count+1);
+            }
+        }
+            
+        HashMap<Character, Integer> map2 = new HashMap<Character, Integer>();
+        for (char character2 : strT){
+            if (map2.get(character2) == null){
+                map2.put(character2, 1);
+            }
+            else{
+                int count2 = map2.get(character2);
+                map2.put(character2, count2+1);
+            }
+        }
+                
+        for (Character key:map1.keySet()){
+            if (map2.get(key) == null){
+                return false;
+            }
+            else{
+                countS = map1.get(key);
+                countT = map2.get(key);
+                if (countS != countT){
+                    return false;
+                }
+            }
+            
+        }
+        return true;
+    }
+}
