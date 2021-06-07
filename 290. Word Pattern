@@ -1,0 +1,36 @@
+class Solution {
+    public boolean wordPattern(String pattern, String s) {
+        int i = 0;
+        char[] alpha = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+        HashMap <String,Character> map = new HashMap <String,Character>();
+        
+        String[] words = s.split("\\s+");
+        ArrayList<Character> list = new ArrayList<Character>();
+        for (String word:words){
+            System.out.println(word);
+            if (map.get(word) == null){
+                map.put(word,alpha[i]);
+                list.add(alpha[i]);
+                i++;
+            }
+            else{
+                char idx = map.get(word);
+                list.add(idx);
+            }
+        }
+        
+        if (list.size()!=pattern.length()){
+            return false;
+        }
+        
+       
+        for (int j = 0; j < pattern.length(); j++){
+            char patternSingle = pattern.charAt(j);
+            char stringPattern = list.get(j);
+            if (patternSingle != stringPattern)
+                return false;
+        }
+        return true;
+        
+    }
+}
