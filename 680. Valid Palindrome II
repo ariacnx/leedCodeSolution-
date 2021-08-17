@@ -1,0 +1,44 @@
+class Solution {
+    public boolean validPalindrome(String s) {
+        return isPalindrome(0, s.length() - 1, s, false);
+    }
+    private boolean isPalindrome(int front, int back, String s, boolean hasIgnored){
+        if (front > back){
+            return true;
+        }
+        if (s.charAt(front) != s.charAt(back)){
+            if (hasIgnored){
+                return false;
+            }
+            return isPalindrome(front + 1, back, s, true) || isPalindrome(front, back - 1, s, true);
+        }
+        return isPalindrome(front + 1, back - 1, s, hasIgnored);
+    }                
+}
+class Solution {
+    public boolean validPalindrome(String s) {
+        int j = s.length()-1;
+        int i = 0;
+        while(i <= j){
+            if (s.charAt(i) != s.charAt(j)){
+                return isPalindrome(i,j-1,s) || isPalindrome(i+1,j,s);
+            }
+            i++;
+            j--;
+            }
+        return true;
+    }
+        
+        
+        private boolean isPalindrome(int front, int back, String s){
+            while(front <= back ){
+                if(s.charAt(front) != s.charAt(back)){
+                    return false;
+                }
+                front++;
+                back--;
+            }
+            return true;
+        }
+                   
+}
