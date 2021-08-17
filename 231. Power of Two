@@ -1,0 +1,20 @@
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        if ( n == 1){
+            return true;
+        }
+        double answer = 1; 
+        int power = 0; 
+        while(true){
+            answer = Math.pow(2, power+1);
+            if(answer == n){
+                return true;
+            }
+            else if(answer > n){
+                return false;
+            }
+            power++;
+        
+        }
+    }
+}
