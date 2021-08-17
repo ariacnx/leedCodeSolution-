@@ -1,0 +1,16 @@
+class Solution {
+    public boolean isPowerOfThree(int n) {
+        double answer = 0;
+        int power = 0;
+        while (true){
+            answer = Math.pow(3, power);
+            if (answer > n){
+                return false;
+            }
+            else if (answer ==n){
+                return true;
+            }
+            power++;
+        }
+    }
+}
