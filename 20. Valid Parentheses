@@ -1,0 +1,24 @@
+class Solution {
+    public boolean isValid(String s) {
+        Deque<Character> myStack = new ArrayDeque<Character>();
+        if (s.length() <= 1){
+        return false;
+        }
+        for (int i = 0; i < s.length(); i++){
+            Character current = s.charAt(i);
+            if (myStack.size() == 0){
+                if((current == ')') || (current == ']') || (current == '}')){   
+                    return false;
+                }
+            }
+            Character matching = myStack.peek();
+            if((current == ')' && matching == '(') || (current == ']' && matching == '[') || (current == '}' && matching == '{')){
+                myStack.pop();  
+            }
+            else{
+                myStack.push(current);
+            }
+        }
+        return myStack.size() == 0;
+    }
+}
